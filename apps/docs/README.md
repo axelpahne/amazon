@@ -1,28 +1,23 @@
-## Getting Started
+# Creating a new NoA Ignite project
 
-First, run the development server:
+(Explain why monorepo... Playground for packages... etc.)
+
+## Creating a new monorepo
+
+Start by creating a monorepo project with Turborepo from Vercel. A guide for this can be found at https://turbo.build/repo/docs/getting-started/create-new. If you plan on working with `TailwindCSS` in your project then make sure to initialize your project with the tailwind template.
 
 ```bash
-yarn dev
+npx create-turbo@latest -e with-tailwind
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+## Installing the NoA Ignite docs
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+[Storybook](https://storybook.js.org/) is a popular way to build UI components in an isolated environment. By putting Storybook into your Turborepo, you can easily develop your design system right alongside your applications. A guide for this can be found at https://turbo.build/repo/docs/handbook/tools/storybook.
 
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3001/api/hello](http://localhost:3001/api/hello).
+```bash
+cd apps/
+rm docs
+npx @noaignite/create-app docs --branch 2.0
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Running `yarn dev` will now start both apps; web & docs.
